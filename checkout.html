@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your GameZone demo checkout securely using the front-end checkout form.">
+  <title>Checkout | GameZone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="GameZone home">GameZone</a>
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart <span id="cart-count" class="cart-count">0</span></a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-title">
+    <h1>Checkout</h1>
+    <p>Review your order and enter your delivery and payment details.</p>
+  </section>
+
+  <section class="checkout-layout">
+    <form id="checkout-form" class="content-card checkout-form" novalidate>
+      <h2>Delivery details</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First name</label>
+          <input id="first-name" name="firstName" type="text" autocomplete="given-name" required minlength="2">
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last name</label>
+          <input id="last-name" name="lastName" type="text" autocomplete="family-name" required minlength="2">
+          <small class="error-message"></small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="checkout-email">Email address</label>
+        <input id="checkout-email" name="email" type="email" autocomplete="email" required>
+        <small class="error-message"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input id="address" name="address" type="text" autocomplete="street-address" required minlength="5">
+        <small class="error-message"></small>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">Town or city</label>
+          <input id="city" name="city" type="text" autocomplete="address-level2" required minlength="2">
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="postcode">Postcode</label>
+          <input id="postcode" name="postcode" type="text" autocomplete="postal-code" required pattern="[A-Za-z0-9 ]{5,8}" placeholder="SE18 3LG">
+          <small class="error-message"></small>
+        </div>
+      </div>
+
+      <h2>Payment details</h2>
+      <p class="demo-note">Demo checkout only. Do not enter real card details.</p>
+
+      <div class="form-group">
+        <label for="card-name">Name on card</label>
+        <input id="card-name" name="cardName" type="text" autocomplete="cc-name" required minlength="3">
+        <small class="error-message"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="card-number">Card number</label>
+        <input id="card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" required pattern="[0-9 ]{16,19}" maxlength="19" placeholder="1111 2222 3333 4444">
+        <small class="error-message"></small>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="expiry">Expiry date</label>
+          <input id="expiry" name="expiry" type="text" inputmode="numeric" autocomplete="cc-exp" required pattern="(0[1-9]|1[0-2])\/[0-9]{2}" maxlength="5" placeholder="MM/YY">
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="cvv">Security code</label>
+          <input id="cvv" name="cvv" type="password" inputmode="numeric" autocomplete="cc-csc" required pattern="[0-9]{3,4}" maxlength="4" placeholder="123">
+          <small class="error-message"></small>
+        </div>
+      </div>
+
+      <button id="place-order-button" class="btn checkout-submit" type="submit">Place order</button>
+      <p id="checkout-message" class="success-message" role="status" aria-live="polite"></p>
+    </form>
+
+    <aside class="checkout-summary content-card" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Order summary</h2>
+      <div id="checkout-items"></div>
+      <div class="summary-line"><span>Subtotal</span><strong id="checkout-subtotal">£0.00</strong></div>
+      <div class="summary-line"><span>Delivery</span><strong>Free</strong></div>
+      <div class="summary-line summary-total"><span>Total</span><strong id="checkout-total">£0.00</strong></div>
+      <a class="link-btn" href="cart.html">← Return to cart</a>
+    </aside>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 GameZone. Front-end demo website for CPU4104 Web Development.</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
